@@ -5,6 +5,7 @@ body {
 table {
     border: 1px #000 solid;
     width: 100%;
+    border-collapse: collapse;
 }
 
 tr:hover td {
@@ -18,6 +19,10 @@ tr.hidden {
 td, th {
     border: 1px #000 solid;
     padding: 10px;
+}
+
+td.center {
+    text-align: center;
 }
 
 div.activeFlag {
@@ -43,4 +48,9 @@ div.checkView {
     font-size: 12px;
     background: #ccc;
     cursor: pointer;
+    border-radius: 50%;
+}
+
+label.showActiveLabel {
+    padding: 10px;
 }

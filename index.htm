@@ -8,7 +8,7 @@
     <body>
         <main>
             <section>
-                <label>
+                <label class="showActiveLabel">
                     Показать только активные
                     <input type="checkbox" id="showActive" />
                 </label>
@@ -30,11 +30,11 @@
                 
                 function buildNode(item, cat) {
                     let tblRow = "<tr class=\"tableRow\" data-id=\"" + item.id + "\" data-parentId=\"" + item.parentId + "\" "+ (item.parentId!=0?"style=\"display: none;\"":"") +">" + 
-                        "<td>" + (cat.some(i => i.parentId === item.id)?"<div class=\"checkView\">+</div>":"") + "</td>" +
+                        "<td class=\"center\">" + (cat.some(i => i.parentId === item.id)?"<div class=\"checkView\">+</div>":"") + "</td>" +
                         "<td>" + item.name + "</td>" +
                         "<td>" + item.email + "</td>" + 
                         "<td>" + item.balance + "</td>" + 
-                        "<td><div class=\"activeFlag " + (item.isActive?"active":"inactive") + "\"></div></td>" + 
+                        "<td class=\"center\"><div class=\"activeFlag " + (item.isActive?"active":"inactive") + "\"></div></td>" + 
                         "</tr>";
 
                     list.push(item.id);
@@ -73,12 +73,6 @@
                         $('.tableRow[data-parentId="'+id+'"]').hide();
                         $(this).removeClass('open').html('+');
                     }
-                    // if(tr.css('display') === 'none') {
-                    //     $(this).html('-');
-                    //     tr.show(); 
-                    // } else {
-                    //     tr.hide();
-                    // }
                 });
 
                 $('#showActive').on('change', function() {
