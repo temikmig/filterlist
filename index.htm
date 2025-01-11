@@ -31,7 +31,7 @@
 
                     let children = '';
 
-                    cat.filter(function(i) { return i.itemParentId == item.itemId; })
+                    cat.filter(function(i) { return i.id == item.parentId; })
                     .forEach(function(i) { children += buildNode(i, cat); });
 
                     if (children.length > 0) {
