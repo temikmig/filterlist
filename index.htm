@@ -7,7 +7,7 @@
     </head>
     <body>
         <main>
-            <table id="userdata">
+            <table id="filterdata">
                 <thead>
                     <th>Name</th>
                     <th>Email</th>
@@ -19,11 +19,11 @@
             $(function() {
                 var people = [];
      
-                $.getJSON('./default.json', function(data) {
-                    $.each(data.person, function(i, f) {
+                $.getJSON('default.json', function(data) {
+                    $.each(data, function(i, f) {
                     var tblRow = "<tr>" + "<td>" + f.name + "</td>" +
                         "<td>" + f.email + "</td>" + "</tr>"
-                        $(tblRow).appendTo("#userdata tbody");
+                        $(tblRow).appendTo("#filterdata tbody");
                     });
             
                 });
