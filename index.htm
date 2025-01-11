@@ -26,7 +26,7 @@
                 
                 function buildNode(item, cat) {
                     let tblRow = "<tr class=\"tableRow\" data-id=\"" + item.id + "\" data-parentId=\"" + item.parentId + "\" "+ (item.parentId!=0?"style=\"display: none;\"":"") +">" + 
-                        "<td><div class=\"checkView\">+</div></td>" +
+                        "<td>" + (cat.some(i => i.parentId === item.id)?"<div class=\"checkView\">+</div>":"") + "</td>" +
                         "<td>" + item.name + "</td>" +
                         "<td>" + item.email + "</td>" + 
                         "<td>" + item.balance + "</td>" + 
@@ -39,13 +39,10 @@
                     
                     let children = '';
 
-                    cat.filter(function(i) { return i.parentId == item.id; })
-                    .forEach(function(i) { children += buildNode(i, cat); });
+                    cat.filter(function(i) { return i.parentId == item.id; }).forEach(function(i) { children += buildNode(i, cat); });
 
-                    if (children.length > 0) {
-                        tblRow += children;
-                        
-                    }
+                    if(children.length > 0) tblRow += children;
+
                     return tblRow;
                 }
 
