@@ -42,4 +42,5 @@ div.checkView {
     align-items: center;
     font-size: 12px;
     background: #ccc;
+    cursor: pointer;
 }
