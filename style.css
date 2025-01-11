@@ -29,6 +29,7 @@ div.activeFlag {
     width: 16px;
     height: 16px;
     border-radius: 50%;
+    display: inline-block;
 }
 
 div.activeFlag.active {
@@ -49,6 +50,7 @@ div.checkView {
     background: #ccc;
     cursor: pointer;
     border-radius: 50%;
+    display: inline-block;
 }
 
 label.showActiveLabel {
