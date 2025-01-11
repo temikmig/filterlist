@@ -46,7 +46,7 @@
                         tblRow += children;
                         
                     }
-                    if(!list.includes(item.id)) return tblRow;
+                    return tblRow;
                 }
 
                 const getUnique = (arr) => {
@@ -59,7 +59,7 @@
                     let table = '';
 
                     data.forEach(function(item) {
-                        table += buildNode(item, data);
+                        if(!list.includes(item.id)) table += buildNode(item, data);
                     });
                      
 
