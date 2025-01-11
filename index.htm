@@ -25,7 +25,7 @@
                 let list = [];
                 
                 function buildNode(item, cat) {
-                    let tblRow = "<tr data-id=\"" + item.id + "\" data-parentId=\"" + item.parentId + "\">" + 
+                    let tblRow = "<tr class=\"tableRow\" data-id=\"" + item.id + "\" data-parentId=\"" + item.parentId + "\">" + 
                         "<td><div>+</div></td>" +
                         "<td>" + item.name + "</td>" +
                         "<td>" + item.email + "</td>" + 
@@ -54,20 +54,17 @@
                 };
      
                 $.getJSON('default.json', function(data) {
-                    // $.each(data, function(i, item) {
-                    // let parents = data.filter(item => item.parentId==0);
                     let table = '';
 
                     data.forEach(function(item) {
                         if(!list.includes(item.id)) table += buildNode(item, data);
                     });
-                     
+                    
+                    $(table).appendTo("#filterdata tbody");
+                });
 
-
-
-                        $(table).appendTo("#filterdata tbody");
-                    // });
-            
+                $('.tableRow').each(function() {
+                    if($(this).data('parentId')!=0) $(this).hide();
                 });
             });
         </script>
