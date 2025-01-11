@@ -25,7 +25,7 @@
                 let list = [];
                 
                 function buildNode(item, cat) {
-                    let tblRow = "<tr class=\"tableRow\" data-id=\"" + item.id + "\" data-parentId=\"" + item.parentId + "\">" + 
+                    let tblRow = "<tr class=\"tableRow\" data-id=\"" + item.id + "\" data-parentId=\"" + item.parentId + "\" "+ (item.parentId==0?"style=\"display: none;\"":"") +">" + 
                         "<td><div>+</div></td>" +
                         "<td>" + item.name + "</td>" +
                         "<td>" + item.email + "</td>" + 
@@ -61,10 +61,6 @@
                     });
                     
                     $(table).appendTo("#filterdata tbody");
-                });
-
-                $('.tableRow').each(function() {
-                    if($(this).data('parentId')!=0) $(this).hide();
                 });
             });
         </script>
