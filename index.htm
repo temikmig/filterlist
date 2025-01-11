@@ -25,8 +25,8 @@
                 let list = [];
                 
                 function buildNode(item, cat) {
-                    let tblRow = "<tr class=\"tableRow\" data-id=\"" + item.id + "\" data-parentId=\"" + item.parentId + "\" "+ (item.parentId==0?"style=\"display: none;\"":"") +">" + 
-                        "<td><div>+</div></td>" +
+                    let tblRow = "<tr class=\"tableRow\" data-id=\"" + item.id + "\" data-parentId=\"" + item.parentId + "\" "+ (item.parentId!=0?"style=\"display: none;\"":"") +">" + 
+                        "<td><div class=\"checkView\">+</div></td>" +
                         "<td>" + item.name + "</td>" +
                         "<td>" + item.email + "</td>" + 
                         "<td>" + item.balance + "</td>" + 
@@ -62,6 +62,20 @@
                     
                     $(table).appendTo("#filterdata tbody");
                 });
+
+                $(document).on('click', '.checkView', function() {
+                    const tr = $(this).closest('tr');
+                    const id = tr.data('id');
+
+                    $('.tableRow[data-parentId="'+id+'"]').show();
+                    $(this).html('-');
+                    // if(tr.css('display') === 'none') {
+                    //     $(this).html('-');
+                    //     tr.show(); 
+                    // } else {
+                    //     tr.hide();
+                    // }
+                })
             });
         </script>
     </body>
