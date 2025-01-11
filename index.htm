@@ -67,8 +67,13 @@
                     const tr = $(this).closest('tr');
                     const id = tr.data('id');
 
-                    $('.tableRow[data-parentId="'+id+'"]').show();
-                    $(this).html('-');
+                    if(!$(this).hasClass('open')) {
+                        $('.tableRow[data-parentId="'+id+'"]').show();
+                        $(this).addClass('open').html('-');
+                    } else {
+                        $('.tableRow[data-parentId="'+id+'"]').hide();
+                        $(this).addClass('open').html('+');
+                    }
                     // if(tr.css('display') === 'none') {
                     //     $(this).html('-');
                     //     tr.show(); 
