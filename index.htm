@@ -22,12 +22,12 @@
                 var people = [];
      
                 $.getJSON('default.json', function(data) {
-                    $.each(data, function(i, f) {
-                    var tblRow = "<tr>" + 
-                        "<td>" + f.name + "</td>" +
-                        "<td>" + f.email + "</td>" + 
-                        "<td>" + f.balance + "</td>" + 
-                        "<td>" + f.isActive + "</td>" + 
+                    $.each(data, function(i, item) {
+                    var tblRow = "<tr data-id=\"" + item.id + "\">" + 
+                        "<td>" + item.name + "</td>" +
+                        "<td>" + item.email + "</td>" + 
+                        "<td>" + item.balance + "</td>" + 
+                        "<td>" + item.isActive + "</td>" + 
                         "</tr>"
                         $(tblRow).appendTo("#filterdata tbody");
                     });
