@@ -17,5 +17,29 @@ tr.hidden {
 
 td, th {
     border: 1px #000 solid;
-    padding: 20px;
+    padding: 10px;
+}
+
+div.activeFlag {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+}
+
+div.activeFlag.active {
+    background: #1b9d46;
+}
+
+div.activeFlag.inactive {
+    background: #9d1b1b;
+}
+
+div.checkView {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    background: #ccc;
 }
