@@ -22,15 +22,24 @@
                 var people = [];
      
                 $.getJSON('default.json', function(data) {
-                    $.each(data, function(i, item) {
-                    var tblRow = "<tr data-id=\"" + item.id + "\">" + 
+                    // $.each(data, function(i, item) {
+                    let parents = data.filter(item => item.parentId==0);
+                    let tblRow = '';
+
+                    parents.map(item => {
+                        tblRow += "<tr data-id=\"" + item.id + "\">" + 
                         "<td>" + item.name + "</td>" +
                         "<td>" + item.email + "</td>" + 
                         "<td>" + item.balance + "</td>" + 
                         "<td>" + item.isActive + "</td>" + 
                         "</tr>"
+                    })
+                     
+
+
+
                         $(tblRow).appendTo("#filterdata tbody");
-                    });
+                    // });
             
                 });
             });
