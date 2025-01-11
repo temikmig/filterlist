@@ -11,6 +11,8 @@
                 <thead>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>Balance</th>
+                    <th>Активно</th>
                 </thead>
                 <tbody></tbody>
             </table>
@@ -21,8 +23,12 @@
      
                 $.getJSON('default.json', function(data) {
                     $.each(data, function(i, f) {
-                    var tblRow = "<tr>" + "<td>" + f.name + "</td>" +
-                        "<td>" + f.email + "</td>" + "</tr>"
+                    var tblRow = "<tr>" + 
+                        "<td>" + f.name + "</td>" +
+                        "<td>" + f.email + "</td>" + 
+                        "<td>" + f.balance + "</td>" + 
+                        "<td>" + f.isActive + "</td>" + 
+                        "</tr>"
                         $(tblRow).appendTo("#filterdata tbody");
                     });
             
