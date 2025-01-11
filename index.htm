@@ -19,7 +19,7 @@
             $(function() {
                 var people = [];
      
-                $.getJSON('default.json', function(data) {
+                $.getJSON('./default.json', function(data) {
                     $.each(data.person, function(i, f) {
                     var tblRow = "<tr>" + "<td>" + f.name + "</td>" +
                         "<td>" + f.email + "</td>" + "</tr>"
