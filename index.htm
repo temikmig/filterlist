@@ -72,7 +72,7 @@
                         $(this).addClass('open').html('-');
                     } else {
                         $('.tableRow[data-parentId="'+id+'"]').hide();
-                        $(this).addClass('open').html('+');
+                        $(this).removeClass('open').html('+');
                     }
                     // if(tr.css('display') === 'none') {
                     //     $(this).html('-');
