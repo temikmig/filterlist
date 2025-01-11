@@ -46,7 +46,7 @@
                         tblRow += children;
                         
                     }
-                    if(list.includes(item.id)) return tblRow;
+                    if(!list.includes(item.id)) return tblRow;
                 }
 
                 const getUnique = (arr) => {
