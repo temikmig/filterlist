@@ -9,6 +9,7 @@
         <main>
             <table id="filterdata">
                 <thead>
+                    <th></th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Balance</th>
@@ -19,26 +20,39 @@
         </main>
         <script type="text/javascript">
             $(function() {
-                var people = [];
-     
-                $.getJSON('default.json', function(data) {
-                    // $.each(data, function(i, item) {
-                    let parents = data.filter(item => item.parentId==0);
-                    let tblRow = '';
-
-                    parents.map(item => {
-                        tblRow += "<tr data-id=\"" + item.id + "\">" + 
+                function buildNode(item, cat) {
+                    let tblRow = "<tr data-id=\"" + item.id + "\" data-parentId=\"" + item.parentId + "\">" + 
+                        "<td><div>+</div></td>" +
                         "<td>" + item.name + "</td>" +
                         "<td>" + item.email + "</td>" + 
                         "<td>" + item.balance + "</td>" + 
                         "<td>" + item.isActive + "</td>" + 
-                        "</tr>"
-                    })
+                        "</tr>";
+
+                    let children = '';
+
+                    cat.filter(function(i) { return i.itemParentId == item.itemId; })
+                    .forEach(function(i) { children += buildNode(i, cat); });
+
+                    if (children.length > 0) {
+                        tblRow += children;
+                    }
+                    return result;
+                }
+     
+                $.getJSON('default.json', function(data) {
+                    // $.each(data, function(i, item) {
+                    // let parents = data.filter(item => item.parentId==0);
+                    let table = '';
+
+                    data.forEach(function(item) {
+                        list += buildNode(item, data);
+                    });
                      
 
 
 
-                        $(tblRow).appendTo("#filterdata tbody");
+                        $(table).appendTo("#filterdata tbody");
                     // });
             
                 });
