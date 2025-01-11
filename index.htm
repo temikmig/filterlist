@@ -43,6 +43,10 @@
                     }
                     return tblRow;
                 }
+
+                const getUnique = (arr) => {
+                    return arr.filter((el, ind) => ind === arr.indexOf(el));
+                };
      
                 $.getJSON('default.json', function(data) {
                     // $.each(data, function(i, item) {
@@ -56,7 +60,7 @@
 
 
 
-                        $(table).appendTo("#filterdata tbody");
+                        $(getUnique(table)).appendTo("#filterdata tbody");
                     // });
             
                 });
