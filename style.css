@@ -13,7 +13,7 @@ tr:hover td {
 }
 
 tr.hidden {
-    display: none;
+    display: none !important;
 }
 
 td, th {
