@@ -7,6 +7,12 @@
     </head>
     <body>
         <main>
+            <section>
+                <label>
+                    Показать только активные
+                    <input type="checkbox" id="showActive" />
+                </label>
+            </section>
             <table id="filterdata">
                 <thead>
                     <th></th>
@@ -30,7 +36,7 @@
                         "<td>" + item.name + "</td>" +
                         "<td>" + item.email + "</td>" + 
                         "<td>" + item.balance + "</td>" + 
-                        "<td>" + item.isActive + "</td>" + 
+                        "<td><div class=\"activeFlag " + (item.isActive?"active":"inactive") + "\"></div></td>" + 
                         "<td>" + item.id + "</td>" + 
                         "<td>" + item.parentId + "</td>" + 
                         "</tr>";
@@ -77,7 +83,15 @@
                     // } else {
                     //     tr.hide();
                     // }
-                })
+                });
+
+                $('#showActive').on('change', function() {
+                    if($(this).is(':checked')) {
+                        $('.activeFlag.inactive').closest('.tableRow').addClass('hidden');
+                    } else {
+                        $('.tableRow').removeClass('hidden');
+                    }
+                });
             });
         </script>
     </body>

@@ -1,7 +1,21 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 table {
     border: 1px #000 solid;
+    width: 100%;
+}
+
+tr:hover td {
+    background: #e2e2e2;
+}
+
+tr.hidden {
+    display: none;
 }
 
 td, th {
     border: 1px #000 solid;
+    padding: 20px;
 }
